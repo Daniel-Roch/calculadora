@@ -2,32 +2,7 @@ let resultado = $('#tela-calcu').val()
 //criando total
 let total = 0
 
-/* class Calculadora{
-    constructor(){
-        this._a,
-        this._b
-    }
-    setValorA(a){
-        this._a = a
-    }
-    setValorB(){
-        this._b = b
-    }
-    getSoma(){
-        return (this._a + this._b)
-    }
-    getSubtracao(){
-        return (this._a - this._b)
-    }
-    getDivisao(){
-        return (this._a / this._b)
-    }
-    getMultiplica(){
-        return (this._a * this._b)
-    }
-} 
-*/
-
+//Botões clicar número
 $('#0').on('click',()=>{
     if(resultado != ''){
         resultado += `0`
