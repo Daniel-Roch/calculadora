@@ -80,7 +80,7 @@ $('#9').on('click',()=>{
     $('#tela-calcu').val(resultado)
 })
 $('#virgula').on('click',()=>{
-    if(resultado.string == undefined){
+    if(resultado == ''){
         resultado += `0.`
     }
 
