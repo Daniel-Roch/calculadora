@@ -28,10 +28,11 @@ let total = 0
 } 
 */
 
-
 $('#0').on('click',()=>{
-    resultado += `0`
-    $('#tela-calcu').val(resultado)
+    if(resultado != ''){
+        resultado += `0`
+        $('#tela-calcu').val(resultado)
+    }
 })
 
 $('#1').on('click',()=>{
@@ -78,31 +79,40 @@ $('#9').on('click',()=>{
     resultado += `9`
     $('#tela-calcu').val(resultado)
 })
+$('#virgula').on('click',()=>{
+    if(resultado.string == undefined){
+        resultado += `0.`
+    }
+
+    if(resultado.indexOf('.') <=0){
+        resultado += `.`
+    }
+})
 
 //Botões de ações
 $('#soma').on('click',()=>{
     $('.fazer-algo').html('<h3>+</h3>')
     //let total = new Calculadora;
-    //total.setValorA(parseInt(resultado))
-    total = parseInt(resultado)
+    //total.setValorA(parseFloat(resultado))
+    total = parseFloat(resultado)
     $('#tela-calcu').val("")
     resultado = $('#tela-calcu').val()
 })
 $('#subtra').on('click',()=>{
     $('.fazer-algo').html('<h3>-</h3>')
-    total = parseInt(resultado)
+    total = parseFloat(resultado)
     $('#tela-calcu').val("")
     resultado = $('#tela-calcu').val()
 })
 $('#divisao').on('click',()=>{
     $('.fazer-algo').html('<h3>/</h3>')
-    total = parseInt(resultado)
+    total = parseFloat(resultado)
     $('#tela-calcu').val("")
     resultado = $('#tela-calcu').val()
 })
 $('#multi').on('click',()=>{
     $('.fazer-algo').html('<h3>*</h3>')
-    total = parseInt(resultado)
+    total = parseFloat(resultado)
     $('#tela-calcu').val("")
     resultado = $('#tela-calcu').val()
 })
@@ -118,27 +128,27 @@ $('#limpa').on('click',()=>{
 $('#igual').on('click',()=>{
     //total.setValorB()
     if($('.fazer-algo').text() == '+'){
-        let resposta = total + parseInt(resultado)
+        let resposta = total + parseFloat(resultado)
         $('#tela-calcu').val("")
         resultado = $('#tela-calcu').val()
         $('#tela-calcu').val(`${resposta}`)
 
     }else if($('.fazer-algo').text() == '-'){
-        let resposta = total - parseInt(resultado)
+        let resposta = total - parseFloat(resultado)
         $('#total').text(`${resposta}`)
         $('#tela-calcu').val("")
         resultado = $('#tela-calcu').val()
         $('#tela-calcu').val(`${resposta}`)
 
     }else if($('.fazer-algo').text() == '/'){
-        let resposta = total / parseInt(resultado)
+        let resposta = total / parseFloat(resultado)
         $('#total').text(`${resposta}`)
         $('#tela-calcu').val("")
         resultado = $('#tela-calcu').val()
         $('#tela-calcu').val(`${resposta}`)
 
     }else if($('.fazer-algo').text() == '*'){
-        let resposta = total * parseInt(resultado)
+        let resposta = total * parseFloat(resultado)
         $('#total').text(`${resposta}`)
         $('#tela-calcu').val("")
         resultado = $('#tela-calcu').val()
